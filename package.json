@@ -15,5 +15,8 @@
   ],
   "repository": "KasraK2K/k2token",
   "author": "Kasra Karami <Kasra.Karami.KK@gmail.com> (https://ias.co.ir/)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.23"
+  }
 }
