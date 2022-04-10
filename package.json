@@ -1,32 +1,19 @@
 {
-  "name": "shorterurl",
-  "version": "1.2.3",
-  "description": "this package help to us to make url shortener and easier to read",
+  "name": "k2token",
+  "version": "1.0.0",
+  "description": "This package create secure token",
   "main": "index.js",
   "scripts": {
     "start": "node index"
   },
   "keywords": [
-    "shorterurl",
-    "short",
-    "tiny",
-    "id",
-    "uuid",
-    "bitly",
-    "shorten",
-    "mongoid",
-    "shortid",
-    "tinyid"
+    "k2token",
+    "jwt",
+    "secure",
+    "token",
+    "jesonwebtoken"
   ],
-  "repository": "KasraK2K/shorterurl",
+  "repository": "KasraK2K/k2token",
   "author": "Kasra Karami <Kasra.Karami.KK@gmail.com> (https://ias.co.ir/)",
-  "contributors": [
-    "Kaveh Karami <Kaveh.Karami.KK@gmail.com> (https://github.com/KavehKarami)"
-  ],
-  "license": "MIT",
-  "dependencies": {
-    "sequelize": "^6.3.4",
-    "shortid": "^2.2.15",
-    "sqlite3": "^5.0.0"
-  }
+  "license": "MIT"
 }
