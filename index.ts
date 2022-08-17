@@ -1,18 +1,14 @@
 export interface IConfigs {
-  secret?: string;
-  phrase_one?: string;
-  phrase_two?: string;
+  secret: string;
+  phrase_one: string;
+  phrase_two: string;
 }
 
 export const sign = (
   payload: Record<string, any>,
-  configs: IConfigs = {}
+  configs: IConfigs
 ): string => {
-  const {
-    secret = "Jsa0lmxkVuTFhJpYXQiOjObFkrNmV4sInRSjFjMlYplzvCCwP3",
-    phrase_one = "NiMjVuTFhObFk0SmxkQzFyWlhrNmV5SjFjMlZ5WDJsa0lqb",
-    phrase_two = "tk6MZRVCI6IkpXVCObFk0SmxVuTFV5SjFjMlZ5WMDM5NjV9",
-  } = configs;
+  const { secret, phrase_one, phrase_two } = configs;
   const payloadCopy = JSON.parse(JSON.stringify(payload));
   payloadCopy.__random__fake__key__ = (
     +new Date() + Math.floor(Math.random() * (999 - 100) + 100)
@@ -44,13 +40,9 @@ export const sign = (
 
 export const verify = (
   token: string,
-  configs: IConfigs = {}
+  configs: IConfigs
 ): { valid: boolean; data: Record<string, any> } => {
-  const {
-    secret = "Jsa0lmxkVuTFhJpYXQiOjObFkrNmV4sInRSjFjMlYplzvCCwP3",
-    phrase_one = "NiMjVuTFhObFk0SmxkQzFyWlhrNmV5SjFjMlZ5WDJsa0lqb",
-    phrase_two = "tk6MZRVCI6IkpXVCObFk0SmxVuTFV5SjFjMlZ5WMDM5NjV9",
-  } = configs;
+  const { secret, phrase_one, phrase_two } = configs;
 
   try {
     token = token.replace(/(lf\.|\.rg)/g, "");

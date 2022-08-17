@@ -2,8 +2,7 @@
 exports.__esModule = true;
 exports.verify = exports.sign = void 0;
 var sign = function (payload, configs) {
-    if (configs === void 0) { configs = {}; }
-    var _a = configs.secret, secret = _a === void 0 ? "Jsa0lmxkVuTFhJpYXQiOjObFkrNmV4sInRSjFjMlYplzvCCwP3" : _a, _b = configs.phrase_one, phrase_one = _b === void 0 ? "NiMjVuTFhObFk0SmxkQzFyWlhrNmV5SjFjMlZ5WDJsa0lqb" : _b, _c = configs.phrase_two, phrase_two = _c === void 0 ? "tk6MZRVCI6IkpXVCObFk0SmxVuTFV5SjFjMlZ5WMDM5NjV9" : _c;
+    var secret = configs.secret, phrase_one = configs.phrase_one, phrase_two = configs.phrase_two;
     var payloadCopy = JSON.parse(JSON.stringify(payload));
     payloadCopy.__random__fake__key__ = (+new Date() + Math.floor(Math.random() * (999 - 100) + 100)).toString(16);
     var secretBuff = Buffer.from(secret, "utf-8");
@@ -25,8 +24,7 @@ var sign = function (payload, configs) {
 };
 exports.sign = sign;
 var verify = function (token, configs) {
-    if (configs === void 0) { configs = {}; }
-    var _a = configs.secret, secret = _a === void 0 ? "Jsa0lmxkVuTFhJpYXQiOjObFkrNmV4sInRSjFjMlYplzvCCwP3" : _a, _b = configs.phrase_one, phrase_one = _b === void 0 ? "NiMjVuTFhObFk0SmxkQzFyWlhrNmV5SjFjMlZ5WDJsa0lqb" : _b, _c = configs.phrase_two, phrase_two = _c === void 0 ? "tk6MZRVCI6IkpXVCObFk0SmxVuTFV5SjFjMlZ5WMDM5NjV9" : _c;
+    var secret = configs.secret, phrase_one = configs.phrase_one, phrase_two = configs.phrase_two;
     try {
         token = token.replace(/(lf\.|\.rg)/g, "");
         var secretBuff = Buffer.from(secret, "utf-8");
