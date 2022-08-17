@@ -4,12 +4,13 @@ exports.verify = exports.sign = void 0;
 var sign = function (payload, configs) {
     if (configs === void 0) { configs = {}; }
     var _a = configs.secret, secret = _a === void 0 ? "Jsa0lmxkVuTFhJpYXQiOjObFkrNmV4sInRSjFjMlYplzvCCwP3" : _a, _b = configs.phrase_one, phrase_one = _b === void 0 ? "NiMjVuTFhObFk0SmxkQzFyWlhrNmV5SjFjMlZ5WDJsa0lqb" : _b, _c = configs.phrase_two, phrase_two = _c === void 0 ? "tk6MZRVCI6IkpXVCObFk0SmxVuTFV5SjFjMlZ5WMDM5NjV9" : _c;
-    payload.__random__fake__key__ = (+new Date() + Math.floor(Math.random() * (999 - 100) + 100)).toString(16);
+    var payloadCopy = JSON.parse(JSON.stringify(payload));
+    payloadCopy.__random__fake__key__ = (+new Date() + Math.floor(Math.random() * (999 - 100) + 100)).toString(16);
     var secretBuff = Buffer.from(secret, "utf-8");
     var secret64 = secretBuff.toString("base64");
     var phraseOneBuff = Buffer.from(phrase_one, "utf-8");
     var phraseOne64 = phraseOneBuff.toString("base64");
-    var payloadStr = JSON.stringify(payload);
+    var payloadStr = JSON.stringify(payloadCopy);
     var payloadStrBuff = Buffer.from(payloadStr, "utf-8");
     var payloadStr64 = payloadStrBuff.toString("base64");
     var phraseTwoBuff = Buffer.from(phrase_two, "utf-8");

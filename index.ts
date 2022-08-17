@@ -13,7 +13,8 @@ export const sign = (
     phrase_one = "NiMjVuTFhObFk0SmxkQzFyWlhrNmV5SjFjMlZ5WDJsa0lqb",
     phrase_two = "tk6MZRVCI6IkpXVCObFk0SmxVuTFV5SjFjMlZ5WMDM5NjV9",
   } = configs;
-  payload.__random__fake__key__ = (
+  const payloadCopy = JSON.parse(JSON.stringify(payload));
+  payloadCopy.__random__fake__key__ = (
     +new Date() + Math.floor(Math.random() * (999 - 100) + 100)
   ).toString(16);
 
@@ -23,7 +24,7 @@ export const sign = (
   const phraseOneBuff = Buffer.from(phrase_one, "utf-8");
   const phraseOne64 = phraseOneBuff.toString("base64");
 
-  const payloadStr = JSON.stringify(payload);
+  const payloadStr = JSON.stringify(payloadCopy);
   const payloadStrBuff = Buffer.from(payloadStr, "utf-8");
   const payloadStr64 = payloadStrBuff.toString("base64");
 
